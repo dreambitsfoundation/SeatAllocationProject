@@ -1,0 +1,73 @@
+Sitting Arrangement Project
+=====================================
+
+
+Instruction Manual:
+
+1. Installation
+------------------------
+
+a. Python version required - 3.X (latest)
+b. Create a virtual environment using -  "virtualenv <environment_name>"
+c. Activate the virtual environment using the environment specific command.
+d. Install all dependencies - "pip install -r requirements.txt"
+
+
+2. Running the code
+-------------------------
+
+a. Run the code using - "python3 manage.py runserver"   # python3 only if you have both python 2 and 3 installed.
+
+
+3. Testing the features
+--------------------------
+
+a. Load the prerequisite POSTMAN collection "Student Allocation Project Collection.postman_collection.json" 
+in your local Postman installation. It is present in the root directory of this project.
+
+b. As per the requirement following are the solution:
+    b(1): List of students currently seated in a given classroom
+    Solution: Use "Students in Classroom" request in postman or hit "GET localhost:8000/api/studentsInClassroom/<roomid>"  
+    Sample: You can use roomid value as "5".
+
+    b(2): List of classrooms with at least x students seated in them. x should be received as query_param, with default value = 15
+    Solution: Use "Classroom With Minimum X Students" in postman or hit "GET localhost:800/api/classroomsWithXStudents/<mininum_strudents>"
+    Sample: Use any decimal value.
+
+    b(3): Change the room of a student from Room A to Room B.
+    Solution: Use "Change Student's Classroom" request in postman or 
+              hit "POST localhost:8000/api/changeClassroom"
+              payload: 
+              {
+                  "student_id": <int>,
+                  "classroom_id": <int>
+              }
+    Sample: Attaching a sample payload
+            {
+                "student_id": 32,
+                "classroom_id": 7
+            }
+
+c. Brownies
+    c(1): Write a query to identify which room/seat was a student seated on a particular given date?
+    Solution: python3 manage.py query_student_allocation_by_date <student_id: int> --date="<YYYY-MM-DD>"
+
+    c(2): Write a query to fetch the room ID in json format ({‘room_id’: XX}) for the room with the maximum number of seated people.
+    Solution: python3 manage.py room_having_max_students
+
+d. Helper tools
+    d(1): Create a new room
+    Solution: python3 manage.py create_room <name: str> --seat_capacity=<capacity: int>
+
+    d(2): Bulk Create students
+    Solution: python3 manage.py bulk_create_student <count: int>
+
+    d(3): Allocate seats to students
+    Pre-requisite: Batch ID from the step d(2)
+    Solution: python3 manage.py allocate_seats <batch_id: int> <room_name: str>
+
+    d(4): I want to see all the rooms registered.
+    Solution: Use "All Classrooms" request in postman or hit "GET localhost:8000/api/classroom"  
+
+
+CHEERS!

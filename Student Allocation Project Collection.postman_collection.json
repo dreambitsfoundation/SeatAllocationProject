@@ -1,0 +1,131 @@
+{
+	"info": {
+		"_postman_id": "05a8a0ed-ee96-4627-887d-8548b6dfe173",
+		"name": "Student Allocation Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Classroom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Section B\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/classroom",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"classroom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Classrooms",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/classroom",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"classroom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Students In A Classroom",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/studentsInClassroom/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"studentsInClassroom",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Classroom With Minimum X Students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "Change Student's Classroom",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"student_id\": 31,\n    \"classroom_id\": 7\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{host}}/changeClassroom",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"changeClassroom"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost:8000/api"
+		}
+	]
+}
