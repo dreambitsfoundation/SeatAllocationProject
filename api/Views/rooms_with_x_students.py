@@ -11,7 +11,8 @@ class ClassroomsWithXStudents(APIView):
     Get the class room with atleast X seat allocation.
     """
 
-    def get(self, request, min_student_count, format=None):
+    def get(self, request, format=None):
+        min_student_count = request.GET.get("count", 15)
         rooms_with_min_x_students = get_list_of_class_rooms_with_x_students(min_student_count)
         room_ids = [room['room_id'] for room in rooms_with_min_x_students]
         room_instances = Room.objects.filter(pk__in=room_ids)

@@ -22,7 +22,7 @@ a. Run the code using - "python3 manage.py runserver"   # python3 only if you ha
 3. Testing the features
 --------------------------
 
-a. Load the prerequisite POSTMAN collection "Student Allocation Project Collection.postman_collection.json" 
+a. Load the prerequisite POSTMAN collection "Student Allocation Collection.postman_collection.json" 
 in your local Postman installation. It is present in the root directory of this project.
 
 b. As per the requirement following are the solution:
@@ -31,7 +31,7 @@ b. As per the requirement following are the solution:
     Sample: You can use roomid value as "5".
 
     b(2): List of classrooms with at least x students seated in them. x should be received as query_param, with default value = 15
-    Solution: Use "Classroom With Minimum X Students" in postman or hit "GET localhost:800/api/classroomsWithXStudents/<mininum_strudents>"
+    Solution: Use "Classroom With Minimum X Students" in postman or hit "GET localhost:800/api/classroomsWithXStudents?count=<mininum_strudents>"
     Sample: Use any decimal value.
 
     b(3): Change the room of a student from Room A to Room B.

@@ -71,7 +71,21 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "{{host}}/classroomsWithXStudents?count=0",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"classroomsWithXStudents"
+					],
+					"query": [
+						{
+							"key": "count",
+							"value": "0"
+						}
+					]
+				}
 			},
 			"response": []
 		},
